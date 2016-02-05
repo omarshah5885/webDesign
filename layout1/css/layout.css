@@ -1,0 +1,114 @@
+@charset "UTF-8";
+/* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+/* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+/* solves the boxing problem...see paul's article above' */
+
+/* STEP 5: Base typography */
+body {
+	font: 150%/1.5 Geneva, Verdana, sans-serf; 
+}
+
+/* STEP 6: Outline all elements to be arranged in layout */
+div#container {
+	outline: 5px dashed red;
+/* STEP 7: Set the width and the margins of the page container */
+	width: 80%;
+	margin: 0 auto; 
+}
+
+/* STEP 10: Layer positioned elements with z-index */
+header {
+	outline: 5px dashed orange;
+	position: absolute;
+	background: yellow;
+	top: 0;
+	padding: 3%;
+	margin-right: 10%;
+}
+
+main {
+	outline: 5px dashed green;
+	/* STEP 8e: Set a float to clear a float */
+	margin-top: 28%;
+}
+
+section {
+	outline: 5px solid darkcyan; /*now the borders overlaps*/
+	/*
+	/* STEP 8a: Set the width of the <section> and the <aside> columns */
+	width: 70%; /*70% of its parent main - 10px of border thickness */
+	/* STEP 8b: Float the 2 columns right and left */
+	float: right;
+	/* STEP 8c: Break the float, and experiment with border-box sizing at top of CSS file */
+	padding: 0 3% 5% 3%; /*but now the aside fell off to bottom b/c padding adds to box*/ 
+	/* STEP 8f: Experiment with inline-block to arrange the 2 columns inside the <main> */
+	/*display: inline-block;*/
+}
+
+aside {
+	outline: 5px solid hotpink;
+	/* STEP 8g: vertically align the <aside> column */
+	width: 29%;
+	float: left;
+	/*margin-left: 70%; */
+	/*wihtout this it would overlap with section on right*/*/
+	overflow: hidden; /*lines up the aside with section*/
+	/*display: inline-block;*/
+	/*vertical-align: top;*/
+	padding: 0 3% 5% 3%;
+	
+	
+}
+
+footer {
+	outline: 5px solid mediumpurple;
+	/* STEP 8d: Clear the footer, noticing that the <main> element is collapsed */
+	clear: both;
+	background-color: #36454F;
+	position: fixed;
+	bottom: 0;
+	width: 80%;
+	height: 10%;
+	opacity: .9;
+	
+}
+/* STEP 11: Control visibility and display properties */
+main p img {
+	/*display: none; */
+	/*visibility: hidden;*/
+	float: left;
+	padding-right: 3%;
+}
+/* STEP 9: Absolute and fixed positioning */
+p.social {
+	position: fixed;
+	top: 0;
+	right: 0;
+	margin: 0;
+	font-family: socialicoregular;
+	font-size: 60px;
+	color: white;
+	background-color: rgba(0,0,0,0.7);
+	height: 100px;
+	width: 250px;
+	padding: 10px;
+	text-align: center;
+}
+
+figure {
+	border: 3px solid black;
+	position: relative;
+	right: 15%;
+}
+
+figcaption {
+	font-size: 50%;
+}
